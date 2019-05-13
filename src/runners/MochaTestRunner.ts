@@ -64,10 +64,7 @@ export class MochaTestRunner implements ITestRunnerInterface {
       name: "Debug Test",
       program: "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       request: "launch",
-      type: "node",
-      windows: {
-        program: "${workspaceFolder}/node_modules/mocha/bin/_mocha"
-      }
+      type: "node"
     });
   }
 }

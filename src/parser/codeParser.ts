@@ -4,12 +4,9 @@ const testTokens = ["describe", "it", "test"];
 
 function codeParser(sourceCode) {
   const parserOptions = {
-    plugins: [
-      "jsx",
-      "typescript"
-    ],
+    plugins: ["jsx", "typescript"],
     sourceType: "module",
-    tokens: true,
+    tokens: true
   };
   const ast = parse(sourceCode, parserOptions);
 

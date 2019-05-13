@@ -1,4 +1,4 @@
-import { join } from "path";
+import { join, parse } from "path";
 import { debug, WorkspaceFolder } from "vscode";
 
 import { ITestRunnerInterface } from "../interfaces/ITestRunnerInterface";
@@ -6,13 +6,13 @@ import { ITestRunnerOptions } from "../interfaces/ITestRunnerOptions";
 import { ConfigurationProvider } from "../providers/ConfigurationProvider";
 import { TerminalProvider } from "../providers/TerminalProvider";
 
-export class JestTestRunner implements ITestRunnerInterface {
-  public name: string = "jest";
+export class ReactScriptsTestRunner implements ITestRunnerInterface {
+  public name: string = "react-scripts";
   public terminalProvider: TerminalProvider = null;
   public configurationProvider: ConfigurationProvider = null;
 
   get binPath(): string {
-    return join("node_modules", ".bin", "jest");
+    return join("node_modules", ".bin", "react-scripts");
   }
 
   constructor({ terminalProvider, configurationProvider }: ITestRunnerOptions) {
@@ -29,11 +29,11 @@ export class JestTestRunner implements ITestRunnerInterface {
     const environmentVariables = this.configurationProvider
       .environmentVariables;
     // We force slash instead of backslash for Windows
-    const cleanedFileName = fileName.replace(/\\/g, "/");
+    const cleanedFileName = parse(fileName).base;
 
     const command = `${
       this.binPath
-    } ${cleanedFileName} --testNamePattern="${testName}" ${additionalArguments}`;
+    } test ${cleanedFileName} --testNamePattern="${testName}" --no-cache --watchAll=false ${additionalArguments}`;
 
     const terminal = this.terminalProvider.get(
       { env: environmentVariables },
@@ -53,22 +53,26 @@ export class JestTestRunner implements ITestRunnerInterface {
     const environmentVariables = this.configurationProvider
       .environmentVariables;
     // We force slash instead of backslash for Windows
-    const cleanedFileName = fileName.replace(/\\/g, "/");
+    const cleanedFileName = parse(fileName).base;
 
     debug.startDebugging(rootPath, {
+      name: "Debug Test",
+      type: "node",
+      request: "launch",
       args: [
+        "test",
         cleanedFileName,
-        `--testNamePattern`,
-        testName,
+        `--testNamePattern="${testName}"`,
         "--runInBand",
+        "--no-cache",
+        "--watchAll=false",
         ...additionalArguments.split(" ")
       ],
-      console: "integratedTerminal",
       env: environmentVariables,
-      name: "Debug Test",
-      program: "${workspaceFolder}/node_modules/.bin/jest",
-      request: "launch",
-      type: "node"
+      protocol: "inspector",
+      console: "integratedTerminal",
+      internalConsoleOptions: "neverOpen",
+      runtimeExecutable: "${workspaceFolder}/node_modules/.bin/react-scripts"
     });
   }
 }
