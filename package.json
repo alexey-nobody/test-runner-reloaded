@@ -3,7 +3,7 @@
   "displayName": "JavaScript Test Runner",
   "description": "Run JavaScript tests easily using CodeLens",
   "version": "1.0.0",
-  "publisher": "legfrey",
+  "publisher": "oshri6688",
   "engines": {
     "vscode": "^1.18.0"
   },
