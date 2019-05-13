@@ -3,12 +3,11 @@ import { parse } from "@babel/parser";
 const testTokens = ["describe", "it", "test"];
 
 function codeParser(sourceCode) {
-  const parserOptions = {
+  const ast = parse(sourceCode, {
     plugins: ["jsx", "typescript"],
     sourceType: "module",
     tokens: true
-  };
-  const ast = parse(sourceCode, parserOptions);
+  });
 
   return ast.tokens
     .map(({ value, loc, type }, index) => {
