@@ -1,7 +1,7 @@
 {
   "name": "javascript-test-runner",
   "displayName": "JavaScript Test Runner",
-  "description": "Run JavaScript tests easily using CodeLens",
+  "description": "Run JavaScript tests easily using CodeLens.",
   "version": "1.0.0",
   "publisher": "oshri6688",
   "engines": {
@@ -13,6 +13,7 @@
   ],
   "keywords": [
     "mocha",
+    "react-scripts",
     "jest",
     "test",
     "unit"
@@ -20,7 +21,7 @@
   "preview": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/g3offrey/javascript-test-runner"
+    "url": "https://github.com/oshri6688/javascript-test-runner"
   },
   "icon": "ressources/icon.png",
   "main": "./out/extension",
