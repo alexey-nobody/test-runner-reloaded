@@ -56,6 +56,9 @@ export class JestTestRunner implements ITestRunnerInterface {
     const cleanedFileName = fileName.replace(/\\/g, "/");
 
     debug.startDebugging(rootPath, {
+      name: "Debug Test",
+      type: "node",
+      request: "launch",
       args: [
         cleanedFileName,
         `--testNamePattern`,
@@ -63,12 +66,9 @@ export class JestTestRunner implements ITestRunnerInterface {
         "--runInBand",
         ...additionalArguments.split(" ")
       ],
-      console: "integratedTerminal",
       env: environmentVariables,
-      name: "Debug Test",
-      program: "${workspaceFolder}/node_modules/.bin/jest",
-      request: "launch",
-      type: "node"
+      console: "integratedTerminal",
+      program: "${workspaceFolder}/node_modules/jest/bin/jest.js"
     });
   }
 }
