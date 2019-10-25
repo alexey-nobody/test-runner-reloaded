@@ -28,12 +28,13 @@ export class JestTestRunner implements ITestRunnerInterface {
     const additionalArguments = this.configurationProvider.additionalArguments;
     const environmentVariables = this.configurationProvider
       .environmentVariables;
+
     // We force slash instead of backslash for Windows
     const cleanedFileName = fileName.replace(/\\/g, "/");
 
     const command = `${
       this.binPath
-    } ${cleanedFileName} --testNamePattern="${testName}" ${additionalArguments}`;
+    } ${cleanedFileName} --rootDir="." --testRegex=".*.(test|spec|e2e-spec).ts" --testNamePattern="${testName}" ${additionalArguments}`;
 
     const terminal = this.terminalProvider.get(
       { env: environmentVariables },
