@@ -24,7 +24,7 @@
     "url": "https://github.com/oshri6688/javascript-test-runner"
   },
   "icon": "ressources/icon.png",
-  "main": "./out/extension",
+  "main": "./dist/extension",
   "activationEvents": [
     "*"
   ],
