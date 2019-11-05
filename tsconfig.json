@@ -5,7 +5,7 @@
         "removeComments": true,
         "target": "es2017",
         "sourceMap": true,
-        "outDir": "./out",
+        "outDir": "./dist",
         "baseUrl": "./",
         "incremental": true
     },
