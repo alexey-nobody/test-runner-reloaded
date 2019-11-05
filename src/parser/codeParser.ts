@@ -1,12 +1,12 @@
-import { parse } from "@babel/parser";
+import { parse } from '@babel/parser';
 
-const testTokens = ["describe", "it", "test"];
+const testTokens = ['describe', 'it', 'test'];
 
 function codeParser(sourceCode) {
   const ast = parse(sourceCode, {
-    plugins: ["jsx", "typescript"],
-    sourceType: "module",
-    tokens: true
+    plugins: ['jsx', 'typescript'],
+    sourceType: 'module',
+    tokens: true,
   });
 
   return ast.tokens
@@ -14,7 +14,7 @@ function codeParser(sourceCode) {
       if (testTokens.indexOf(value) === -1) {
         return;
       }
-      if (type.label !== "name") {
+      if (type.label !== 'name') {
         return;
       }
       const nextToken = ast.tokens[index + 1];
@@ -24,7 +24,7 @@ function codeParser(sourceCode) {
 
       return {
         loc,
-        testName: ast.tokens[index + 2].value
+        testName: ast.tokens[index + 2].value,
       };
     })
     .filter(Boolean);
