@@ -1,6 +1,9 @@
-This extension is adapted from https://github.com/g3offrey/javascript-test-runner to add support for react-scripts.
+This extension is adapted from 
 
-Please star Geoffrey's repo if you like the extension.
+1. https://github.com/oshri6688/javascript-test-runner
+2. https://github.com/g3offrey/javascript-test-runner
+
+and after some time, without responding to my pull requests I created  another extension. Many thanks to all the contributors to repositories in list for the great work with this extension.
 
 
 # JavaScript Test Runner
