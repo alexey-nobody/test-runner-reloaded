@@ -3,6 +3,10 @@ All notable changes to the "javascript-test-runner" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [2.0.0] - 2018-07-22
+- Added Nest.JS e2e tests support
+- Update dependencies to latest
+
 ## [1.0.0] - 2018-07-22
 - Improve test token detection
 - Add debug mode for test and test suite
@@ -12,7 +16,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Enable support for Windows platform
 - Enable support for multi root workspaces
 - Improve documentation with troubleshooting guides
-
 
 ## [0.0.1]
 - Initial release
