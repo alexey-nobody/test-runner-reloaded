@@ -31,7 +31,6 @@ export class JestTestRunner implements ITestRunnerInterface {
     const command = `${this.binPath} ${mainArgs} ${secondArgs} ${additionalArguments}`;
 
     const terminal = this.terminalProvider.get({ env: environmentVariables }, rootPath);
-
     terminal.sendText(command, true);
     terminal.show(true);
   }

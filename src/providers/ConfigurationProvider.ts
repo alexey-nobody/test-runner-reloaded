@@ -4,7 +4,10 @@ export class ConfigurationProvider {
   public configuration: WorkspaceConfiguration = null;
 
   constructor(rootPath: WorkspaceFolder) {
-    this.configuration = workspace.getConfiguration('javascript-test-runner', rootPath.uri);
+    this.configuration = workspace.getConfiguration(
+      'javascript-test-runner-reloaded',
+      rootPath.uri,
+    );
   }
 
   get environmentVariables(): {} {
