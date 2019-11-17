@@ -121,6 +121,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "alexeynobody",
+      "name": "Alexey Lepskii",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12109503?v=4",
+      "profile": "https://github.com/alexeynobody",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ]
 }
