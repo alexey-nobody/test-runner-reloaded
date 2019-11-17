@@ -76,3 +76,5 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 Please be advised that any kind of contribution (code, bug report, idea ...) deserves to appear here. If you don't appear here don't hesitate to open a new ticket.
 In the other hand if you don't want to be mentionned don't hesitate to notice it to me.
+
+Also big thx for my dear friend Maxim Bibik for great icon and logo. [Visit if your need best disign](https://xmmbbk.ru/)
