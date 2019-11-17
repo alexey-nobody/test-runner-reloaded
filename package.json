@@ -31,20 +31,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "javascript-test-runner.run.test",
+        "command": "javascript-test-runner-reloaded.run.test",
         "title": "Run Test"
       }
     ],
     "configuration": [
       {
         "properties": {
-          "javascript-test-runner.additionalArgs": {
+          "javascript-test-runner-reloaded.additionalArgs": {
             "type": "string",
             "default": "",
             "description": "CLI args to pass to test runner. Example : --watch",
             "scope": "resource"
           },
-          "javascript-test-runner.envVars": {
+          "javascript-test-runner-reloaded.envVars": {
             "type": "object",
             "default": {
               "NODE_ENV": "test"
