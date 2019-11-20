@@ -1,14 +1,15 @@
+<center><img src="./ressources/icon.png" width="20%"></center>
+
+# JavaScript Test Runner
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+
 This extension is adapted from 
 
 1. https://github.com/oshri6688/javascript-test-runner
 2. https://github.com/g3offrey/javascript-test-runner
 
 and after some time, without responding to my pull requests I created  another extension. Many thanks to all the contributors to repositories in list for the great work with this extension.
-
-
-# JavaScript Test Runner
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
 
 ## Overview
 
