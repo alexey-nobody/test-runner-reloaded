@@ -12,9 +12,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier",
-        "prettier/@typescript-eslint"
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
         "indent": ["error", 2],
