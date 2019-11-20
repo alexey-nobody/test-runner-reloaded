@@ -1,4 +1,4 @@
-<center><img src="./ressources/icon.png" width="20%"></center>
+<p align="center"><img src="./ressources/icon.png" width="20%"></p>
 
 # JavaScript Test Runner
 
