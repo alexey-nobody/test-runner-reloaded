@@ -4,10 +4,10 @@
     "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
-        "impliedStrict": true
+      "impliedStrict": true
     },
     "project": "tsconfig.json"
-},
+  },
   "plugins": ["@typescript-eslint", "import"],
   "env": {
     "es6": true,
@@ -15,8 +15,8 @@
   },
   "extends": [
     "airbnb-typescript/base",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/errors",
@@ -24,6 +24,8 @@
     "plugin:import/typescript"
   ],
   "rules": {
+    "class-methods-use-this": "off",
+    "lines-between-class-members": "off",
     "import/export": "off",
     "import/extensions": ["error", "never"],
     "import/named": "off",
@@ -37,11 +39,11 @@
     "import/no-self-import": "error",
     "import/no-unresolved": ["warn", { "ignore": ["vscode"] }],
     "import/order": [
-        "warn",
-        {
-            "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
-            "newlines-between": "never"
-        }
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
+        "newlines-between": "never"
+      }
     ],
     "indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": 0
