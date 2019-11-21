@@ -1,22 +1,49 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "impliedStrict": true
     },
-    "plugins": ["@typescript-eslint"],
-    "env": {
-        "browser": true,
-        "node": true,
-        "es6": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:prettier/recommended",
-        "plugin:@typescript-eslint/recommended"
+    "project": "tsconfig.json"
+},
+  "plugins": ["@typescript-eslint", "import"],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "rules": {
+    "import/export": "off",
+    "import/extensions": ["error", "never"],
+    "import/named": "off",
+    "import/namespace": "off",
+    "import/newline-after-import": "warn",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off",
+    "import/no-dynamic-require": "error",
+    "import/no-default-export": "error",
+    "import/no-duplicates": "error",
+    "import/no-self-import": "error",
+    "import/no-unresolved": ["warn", { "ignore": ["vscode"] }],
+    "import/order": [
+        "warn",
+        {
+            "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
+            "newlines-between": "never"
+        }
     ],
-    "rules": {
-        "indent": ["error", 2],
-        "@typescript-eslint/explicit-function-return-type": 0
-    }
+    "indent": ["error", 2],
+    "@typescript-eslint/explicit-function-return-type": 0
+  }
 }

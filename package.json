@@ -1,7 +1,7 @@
 {
   "name": "javascript-test-runner-reloaded",
-  "displayName": "JavaScript Test Runner Reloaded",
-  "description": "Run JavaScript tests easily using CodeLens.",
+  "displayName": "Test Runner Reloaded",
+  "description": "Run JavaScript and TypeScript tests easily using CodeLens.",
   "version": "2.0.0",
   "publisher": "alexeynobody",
   "engines": {
@@ -31,20 +31,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "javascript-test-runner-reloaded.run.test",
+        "command": "test-runner-reloaded.run.test",
         "title": "Run Test"
       }
     ],
     "configuration": [
       {
         "properties": {
-          "javascript-test-runner-reloaded.additionalArgs": {
+          "test-runner-reloaded.additionalArgs": {
             "type": "string",
             "default": "",
             "description": "CLI args to pass to test runner. Example : --watch",
             "scope": "resource"
           },
-          "javascript-test-runner-reloaded.envVars": {
+          "test-runner-reloaded.envVars": {
             "type": "object",
             "default": {
               "NODE_ENV": "test"
@@ -85,7 +85,9 @@
     "@typescript-eslint/parser": "^2.8.0",
     "all-contributors-cli": "^6.9.3",
     "eslint": "^6.6.0",
+    "eslint-config-airbnb-typescript": "^6.3.0",
     "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
