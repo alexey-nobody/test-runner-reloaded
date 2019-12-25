@@ -1,9 +1,8 @@
 import { WorkspaceFolder } from 'vscode';
-
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
 import { TerminalProvider } from '../providers/TerminalProvider';
 
-export interface ITestRunnerInterface {
+export interface TestRunnerInterface {
   name: string;
   binPath: string;
   terminalProvider: TerminalProvider;

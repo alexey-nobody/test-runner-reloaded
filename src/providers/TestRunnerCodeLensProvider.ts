@@ -1,7 +1,6 @@
 import { CodeLens, CodeLensProvider, TextDocument, workspace } from 'vscode';
-
-import TestRunnerDebugCodeLens from '../codelens/TestDebugRunnerCodeLens';
-import TestRunnerCodeLens from '../codelens/TestRunnerCodeLens';
+import { TestDebugRunnerCodeLens } from '../codelens/TestDebugRunnerCodeLens';
+import { TestRunnerCodeLens } from '../codelens/TestRunnerCodeLens';
 import { codeParser } from '../parser/codeParser';
 
 function getRootPath({ uri }) {
@@ -17,7 +16,7 @@ function getRootPath({ uri }) {
 function getCodeLens(rootPath, fileName, testName, startPosition) {
   const testRunnerCodeLens = new TestRunnerCodeLens(rootPath, fileName, testName, startPosition);
 
-  const debugRunnerCodeLens = new TestRunnerDebugCodeLens(
+  const debugRunnerCodeLens = new TestDebugRunnerCodeLens(
     rootPath,
     fileName,
     testName,
@@ -27,7 +26,7 @@ function getCodeLens(rootPath, fileName, testName, startPosition) {
   return [testRunnerCodeLens, debugRunnerCodeLens];
 }
 
-export default class TestRunnerCodeLensProvider implements CodeLensProvider {
+export class TestRunnerCodeLensProvider implements CodeLensProvider {
   public provideCodeLenses(document: TextDocument): CodeLens[] | Thenable<CodeLens[]> {
     const createRangeObject = ({ line }) => document.lineAt(line - 1).range;
     const rootPath = getRootPath(document);
@@ -42,6 +41,6 @@ export default class TestRunnerCodeLensProvider implements CodeLensProvider {
   }
 
   public resolveCodeLens?(): CodeLens | Thenable<CodeLens> {
-    return;
+    return null;
   }
 }

@@ -1,10 +1,10 @@
 import { CodeLens, Range, WorkspaceFolder } from 'vscode';
 
-export default class TestDebugRunnerCodeLens extends CodeLens {
+export class TestDebugRunnerCodeLens extends CodeLens {
   constructor(rootPath: WorkspaceFolder, fileName: string, testName: string, range: Range) {
     super(range, {
       arguments: [rootPath, fileName, testName],
-      command: 'javascript-test-runner-reloaded.debug.test',
+      command: 'test-runner-reloaded.debug.test',
       title: 'Debug Test',
     });
   }

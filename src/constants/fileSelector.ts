@@ -1,4 +1,4 @@
-export default [
+export const FILE_SELECTOR = [
   {
     language: 'typescript',
     scheme: 'file',

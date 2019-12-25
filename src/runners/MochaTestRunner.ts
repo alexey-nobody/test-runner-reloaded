@@ -1,13 +1,12 @@
 import { join } from 'path';
 import { debug, WorkspaceFolder } from 'vscode';
-
-import { ITestRunnerInterface } from '../interfaces/ITestRunnerInterface';
-import { ITestRunnerOptions } from '../interfaces/ITestRunnerOptions';
+import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
+import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
 import { TerminalProvider } from '../providers/TerminalProvider';
 
-export class MochaTestRunner implements ITestRunnerInterface {
-  public name: string = 'mocha';
+export class MochaTestRunner implements TestRunnerInterface {
+  public name = 'mocha';
   public terminalProvider: TerminalProvider = null;
   public configurationProvider: ConfigurationProvider = null;
 
@@ -15,14 +14,13 @@ export class MochaTestRunner implements ITestRunnerInterface {
     return join('node_modules', '.bin', 'mocha');
   }
 
-  constructor({ terminalProvider, configurationProvider }: ITestRunnerOptions) {
+  constructor({ terminalProvider, configurationProvider }: TestRunnerOptions) {
     this.terminalProvider = terminalProvider;
     this.configurationProvider = configurationProvider;
   }
 
   public runTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
-    const additionalArguments = this.configurationProvider.additionalArguments;
-    const environmentVariables = this.configurationProvider.environmentVariables;
+    const { additionalArguments, environmentVariables } = this.configurationProvider;
 
     const command = `${this.binPath} ${fileName} --grep="${testName}" ${additionalArguments}`;
 
@@ -33,15 +31,14 @@ export class MochaTestRunner implements ITestRunnerInterface {
   }
 
   public debugTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
-    const additionalArguments = this.configurationProvider.additionalArguments;
-    const environmentVariables = this.configurationProvider.environmentVariables;
+    const { additionalArguments, environmentVariables } = this.configurationProvider;
 
     debug.startDebugging(rootPath, {
       args: [fileName, '--grep', testName, '--no-timeout', ...additionalArguments.split(' ')],
       console: 'integratedTerminal',
       env: environmentVariables,
       name: 'Debug Test',
-      program: '${workspaceFolder}/node_modules/mocha/bin/_mocha',
+      program: './node_modules/mocha/bin/_mocha',
       request: 'launch',
       type: 'node',
     });
