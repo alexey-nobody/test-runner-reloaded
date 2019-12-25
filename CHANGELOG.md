@@ -7,6 +7,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - From yarn to npm
 - Migrated from tslint to eslint
 - Fixed all errors after migrate to eslint
+- Minor fixes and optimisations
 
 ## [2.0.0] - 2019-11-17
 - Added Nest.JS e2e tests support
