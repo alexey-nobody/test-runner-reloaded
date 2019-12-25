@@ -3,6 +3,11 @@ All notable changes to the "javascript-test-runner" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [2.0.1] -
+- From yarn to npm
+- Migrated from tslint to eslint
+- Fixed all errors after migrate to eslint
+
 ## [2.0.0] - 2019-11-17
 - Added Nest.JS e2e tests support
 - Update dependencies to latest
