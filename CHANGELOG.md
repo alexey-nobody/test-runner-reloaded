@@ -3,6 +3,9 @@ All notable changes to the "javascript-test-runner" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [2.0.2] -
+- Fix bug for debug test with nest.js
+
 ## [2.0.1] -
 - From yarn to npm
 - Migrated from tslint to eslint
