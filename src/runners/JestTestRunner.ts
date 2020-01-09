@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { debug, WorkspaceFolder } from 'vscode';
+import { debug, WorkspaceFolder, workspace } from 'vscode';
 import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
 import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
@@ -55,7 +55,8 @@ export class JestTestRunner implements TestRunnerInterface {
       args: formatedArgs,
       env: environmentVariables,
       console: 'integratedTerminal',
-      program: './node_modules/jest/bin/jest.js',
+      // eslint-disable-next-line no-template-curly-in-string
+      program: '${workspaceFolder}/node_modules/jest/bin/jest.js',
     });
   }
 }

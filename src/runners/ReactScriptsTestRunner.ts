@@ -1,5 +1,5 @@
 import { join, parse } from 'path';
-import { debug, WorkspaceFolder } from 'vscode';
+import { debug, WorkspaceFolder, workspace } from 'vscode';
 import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
 import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
@@ -54,7 +54,8 @@ export class ReactScriptsTestRunner implements TestRunnerInterface {
       protocol: 'inspector',
       console: 'integratedTerminal',
       internalConsoleOptions: 'neverOpen',
-      runtimeExecutable: './node_modules/.bin/react-scripts',
+      // eslint-disable-next-line no-template-curly-in-string
+      runtimeExecutable: '${workspaceFolder}/node_modules/.bin/react-scripts',
     });
   }
 }

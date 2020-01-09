@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { debug, WorkspaceFolder } from 'vscode';
+import { debug, WorkspaceFolder, workspace } from 'vscode';
 import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
 import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
@@ -38,7 +38,8 @@ export class MochaTestRunner implements TestRunnerInterface {
       console: 'integratedTerminal',
       env: environmentVariables,
       name: 'Debug Test',
-      program: './node_modules/mocha/bin/_mocha',
+      // eslint-disable-next-line no-template-curly-in-string
+      program: '${workspaceFolder}/node_modules/mocha/bin/_mocha',
       request: 'launch',
       type: 'node',
     });
