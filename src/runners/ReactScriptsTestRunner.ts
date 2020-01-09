@@ -1,5 +1,5 @@
 import { join, parse } from 'path';
-import { debug, WorkspaceFolder, workspace } from 'vscode';
+import { debug, WorkspaceFolder } from 'vscode';
 import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
 import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
