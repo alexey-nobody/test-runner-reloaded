@@ -21,13 +21,25 @@ function codeParser(sourceCode) {
       if (!nextToken.type.startsExpr) {
         return;
       }
-
+    
+     
       return {
         loc,
-        testName: ast.tokens[index + 2].value,
+        testName: getTestNameFromToken(ast.tokens[index + 2]),
       };
     })
     .filter(Boolean);
+}
+
+function getTestNameFromToken(token) {
+  switch(token.type) {
+    case 'Literal':
+      return token.value;
+    case 'TemplateElement':
+      return token.value.raw;
+    default:
+      throw Error(`Unexepected token type for testName: ${token.type}`);
+  }
 }
 
 export { codeParser };
