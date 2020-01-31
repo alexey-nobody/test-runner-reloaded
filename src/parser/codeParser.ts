@@ -21,8 +21,7 @@ function codeParser(sourceCode) {
       if (!nextToken.type.startsExpr) {
         return;
       }
-    
-     
+
       return {
         loc,
         testName: getTestNameFromToken(ast.tokens[index + 2]),
