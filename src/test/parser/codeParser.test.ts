@@ -4,21 +4,20 @@
 //
 
 // The module 'assert' provides assertion methods from node
-import * as assert from "assert";
-
-import { codeParser } from "../../parser/codeParser";
+import * as assert from 'assert';
+import { codeParser } from '../../parser/codeParser';
 
 // Defines a Mocha test suite to group tests of similar kind together
-suite("codeParser Tests", () => {
+suite('codeParser Tests', () => {
   // Defines a Mocha unit test
-  test("Valid Token", () => {
+  test('Valid Token', () => {
     const code = `
             describe('Fake test', () => {});
         `;
     assert.equal(1, codeParser(code).length);
   });
 
-  test("Invalid Tokens", () => {
+  test('Invalid Tokens', () => {
     const code = `
             var test = 'Fluo';
             let src = {test: true, type: 'BANK'};
@@ -29,7 +28,14 @@ suite("codeParser Tests", () => {
     assert.equal(0, codeParser(code).length);
   });
 
-  test("Jsx syntax", () => {
+  test('Template string syntax', () => {
+    const code = `
+            describe(\`Fake test\`, () => {});
+        `;
+    assert.equal(1, codeParser(code).length);
+  });
+
+  test('Jsx syntax', () => {
     const code = `
         describe("JsonFormTextField", () => {
 
