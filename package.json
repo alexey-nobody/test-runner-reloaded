@@ -16,7 +16,10 @@
     "react-scripts",
     "jest",
     "test",
-    "unit"
+    "unit",
+    "e2e",
+    "javascript",
+    "typescript"
   ],
   "preview": true,
   "repository": {
