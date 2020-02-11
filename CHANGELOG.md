@@ -1,7 +1,9 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [2.0.3] - 2020-02-11
+- Add support for template (Thanks to https://github.com/jbwyme).
+- Update dependencies to latest
 
 ## [2.0.2] -
 - Fix bug for debug test with nest.js
