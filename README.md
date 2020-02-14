@@ -81,4 +81,4 @@ In the other hand if you don't want to be mentionned don't hesitate to notice it
 
 ## Special Thx
 
-Also big thx for my dear friend Maxim Bibik for great icon and logo. [Visit if your need best disign](https://xmmbbk.ru/)
+Also big thx for my dear friend Maxim Bibik for great icon and logo. [Visit if your need best design](https://xmmbbk.ru/)
