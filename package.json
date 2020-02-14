@@ -21,7 +21,6 @@
     "javascript",
     "typescript"
   ],
-  "preview": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/alexeynobody/javascript-test-runner"
