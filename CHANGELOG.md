@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
+## [2.0.4] - 2020-02-14
+- Minor fixes
+
 ## [2.0.3] - 2020-02-11
 - Add support for template (Thanks to https://github.com/jbwyme).
 - Update dependencies to latest
