@@ -28,6 +28,7 @@
     "lines-between-class-members": "off",
     "no-await-in-loop": "off",
     "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+    "no-template-curly-in-string": "off",
     "import/export": "off",
     "import/extensions": ["error", "never"],
     "import/named": "off",
