@@ -22,9 +22,9 @@ export class JestTestRunner implements TestRunnerInterface {
   public runTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
-    const formatedTestName = `${testName.split(' ').join('\\s')}`;
+    const formattedTestName = `${testName.split(' ').join('\\s')}`;
     const cleanedFileName = fileName.replace(/\\/g, '/');
-    const mainArgs = `${cleanedFileName} --testNamePattern '${formatedTestName}'`;
+    const mainArgs = `${cleanedFileName} --testNamePattern '${formattedTestName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
     const command = `${this.binPath} ${mainArgs} ${secondArgs} ${additionalArguments}`;
 
@@ -36,9 +36,9 @@ export class JestTestRunner implements TestRunnerInterface {
   public debugTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
-    const formatedTestName = `${testName.split(' ').join('\\s')}`;
+    const formattedTestName = `${testName.split(' ').join('\\s')}`;
     const cleanedFileName = fileName.replace(/\\/g, '/');
-    const mainArgs = `${cleanedFileName} --testNamePattern '${formatedTestName}'`;
+    const mainArgs = `${cleanedFileName} --testNamePattern '${formattedTestName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
 
     let args = `${mainArgs} ${secondArgs}`;
