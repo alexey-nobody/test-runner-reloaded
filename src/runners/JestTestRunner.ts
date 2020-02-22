@@ -41,7 +41,7 @@ export class JestTestRunner implements TestRunnerInterface {
     const mainArgs = `${cleanedFileName} --testNamePattern '${testName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
 
-    let args = `${this.binPath} ${mainArgs} ${secondArgs}`;
+    let args = `${mainArgs} ${secondArgs}`;
     if (additionalArguments && additionalArguments.length > 0) {
       args += ` ${additionalArguments}`;
     }
@@ -53,8 +53,7 @@ export class JestTestRunner implements TestRunnerInterface {
       args: args.split(' '),
       env: environmentVariables,
       console: 'integratedTerminal',
-      // eslint-disable-next-line no-template-curly-in-string
-      program: '${workspaceFolder}/node_modules/jest/bin/jest.js',
+      program: `\${workspaceFolder}/${this.binPath}`,
     });
   }
 }
