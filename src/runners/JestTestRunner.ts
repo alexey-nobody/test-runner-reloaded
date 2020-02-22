@@ -24,7 +24,7 @@ export class JestTestRunner implements TestRunnerInterface {
 
     const cleanedFileName = fileName.replace(/\\/g, '/');
 
-    const mainArgs = `-i ${cleanedFileName} --testNamePattern '${testName}'`;
+    const mainArgs = `${cleanedFileName} --testNamePattern '${testName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
     const command = `${this.binPath} ${mainArgs} ${secondArgs} ${additionalArguments}`;
 
@@ -38,7 +38,7 @@ export class JestTestRunner implements TestRunnerInterface {
 
     const cleanedFileName = fileName.replace(/\\/g, '/');
 
-    const mainArgs = `-i ${cleanedFileName} --testNamePattern '${testName}'`;
+    const mainArgs = `${cleanedFileName} --testNamePattern '${testName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
 
     const formatedArgs = [];
