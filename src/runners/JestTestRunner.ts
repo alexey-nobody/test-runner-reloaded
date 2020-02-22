@@ -22,9 +22,9 @@ export class JestTestRunner implements TestRunnerInterface {
   public runTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
+    const formattedTestName = `${testName.split(' ').join('\\s')}`;
     const cleanedFileName = fileName.replace(/\\/g, '/');
-
-    const mainArgs = `-i ${cleanedFileName} --testNamePattern '${testName}'`;
+    const mainArgs = `${cleanedFileName} --testNamePattern '${formattedTestName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
     const command = `${this.binPath} ${mainArgs} ${secondArgs} ${additionalArguments}`;
 
@@ -36,27 +36,24 @@ export class JestTestRunner implements TestRunnerInterface {
   public debugTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
+    const formattedTestName = `${testName.split(' ').join('\\s')}`;
     const cleanedFileName = fileName.replace(/\\/g, '/');
-
-    const mainArgs = `-i ${cleanedFileName} --testNamePattern '${testName}'`;
+    const mainArgs = `${cleanedFileName} --testNamePattern '${formattedTestName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
 
-    const formatedArgs = [];
-    formatedArgs.push(...mainArgs.split(' '));
-    formatedArgs.push(...secondArgs.split(' '));
+    let args = `${mainArgs} ${secondArgs}`;
     if (additionalArguments && additionalArguments.length > 0) {
-      formatedArgs.push(...additionalArguments);
+      args += ` ${additionalArguments}`;
     }
 
     debug.startDebugging(rootPath, {
       name: 'Debug Test',
       type: 'node',
       request: 'launch',
-      args: formatedArgs,
+      args: args.split(' '),
       env: environmentVariables,
       console: 'integratedTerminal',
-      // eslint-disable-next-line no-template-curly-in-string
-      program: '${workspaceFolder}/node_modules/jest/bin/jest.js',
+      program: `\${workspaceFolder}/${this.binPath}`,
     });
   }
 }
