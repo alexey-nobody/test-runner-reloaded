@@ -41,18 +41,16 @@ export class JestTestRunner implements TestRunnerInterface {
     const mainArgs = `${cleanedFileName} --testNamePattern '${testName}'`;
     const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
 
-    const formatedArgs = [];
-    formatedArgs.push(...mainArgs.split(' '));
-    formatedArgs.push(...secondArgs.split(' '));
+    let args = `${this.binPath} ${mainArgs} ${secondArgs}`;
     if (additionalArguments && additionalArguments.length > 0) {
-      formatedArgs.push(...additionalArguments);
+      args += ` ${additionalArguments}`;
     }
 
     debug.startDebugging(rootPath, {
       name: 'Debug Test',
       type: 'node',
       request: 'launch',
-      args: formatedArgs,
+      args: args.split(' '),
       env: environmentVariables,
       console: 'integratedTerminal',
       // eslint-disable-next-line no-template-curly-in-string
