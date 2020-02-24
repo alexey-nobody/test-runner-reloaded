@@ -1,8 +1,11 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
+## [2.1.2] - 2020-02-24
+- Fixed repository url after rename it in package.json
+
 ## [2.1.1] - 2020-02-24
-- Fix Readme.MD for logo and demo
+- Fixed Readme.MD for logo and demo
 
 ## [2.1.0] - 2020-02-24
 - Fixed bug if test name contains brackets
@@ -16,11 +19,11 @@ All notable changes to the "javascript-test-runner" extension will be documented
 - Minor fixes
 
 ## [2.0.3] - 2020-02-11
-- Add support for template (Thanks to https://github.com/jbwyme).
+- Added support for template (Thanks to https://github.com/jbwyme).
 - Update dependencies to latest
 
 ## [2.0.2] -
-- Fix bug for debug test with nest.js
+- Fixed bug for debug test with nest.js
 
 ## [2.0.1] -
 - From yarn to npm
