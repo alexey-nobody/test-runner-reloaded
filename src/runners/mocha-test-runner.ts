@@ -1,9 +1,9 @@
 import { join } from 'path';
 import { debug, WorkspaceFolder } from 'vscode';
-import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
-import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
-import { ConfigurationProvider } from '../providers/ConfigurationProvider';
-import { TerminalProvider } from '../providers/TerminalProvider';
+import { TestRunnerInterface } from '../interfaces/test-runner-interface';
+import { TestRunnerOptions } from '../interfaces/test-runner-options';
+import { ConfigurationProvider } from '../providers/configuration-provider';
+import { TerminalProvider } from '../providers/terminal-provider';
 import { formatTestName } from '../utils';
 
 export class MochaTestRunner implements TestRunnerInterface {

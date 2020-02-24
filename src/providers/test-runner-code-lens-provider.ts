@@ -1,7 +1,7 @@
 import { CodeLens, CodeLensProvider, TextDocument, workspace } from 'vscode';
-import { TestDebugRunnerCodeLens } from '../codelens/TestDebugRunnerCodeLens';
-import { TestRunnerCodeLens } from '../codelens/TestRunnerCodeLens';
-import { codeParser } from '../parser/codeParser';
+import { TestDebugRunnerCodeLens } from '../codelens/test-debug-runner-code-lens';
+import { TestRunnerCodeLens } from '../codelens/test-runner-code-lens';
+import { codeParser } from '../parser/code-parser';
 
 function getRootPath({ uri }) {
   const activeWorkspace = workspace.getWorkspaceFolder(uri);
