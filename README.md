@@ -1,4 +1,4 @@
-<p align="center"><img src="./ressources/icon.png" width="20%"></p>
+<p align="center"><img src="./res/icon.png" width="20%"></p>
 
 # JavaScript Test Runner
 
@@ -18,7 +18,7 @@ Currently it works **out of the box** for **React-Scripts** , **Mocha** and **Je
 
 ## Demo
 
-![demo](./ressources//demo.gif)
+![demo](./res/demo.gif)
 
 ## Available configuration
 
