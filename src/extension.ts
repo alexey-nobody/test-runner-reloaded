@@ -1,8 +1,7 @@
 import { commands, ExtensionContext, languages } from 'vscode';
-import { debugTest } from './commands/debug-test-command';
-import { runTest } from './commands/run-test-command';
 import { FILE_SELECTOR } from './constants';
 import { TestRunnerCodeLensProvider } from './providers/test-runner-code-lens-provider';
+import { runTest, debugTest } from './commands';
 
 export function activate(context: ExtensionContext) {
   context.subscriptions.push(
