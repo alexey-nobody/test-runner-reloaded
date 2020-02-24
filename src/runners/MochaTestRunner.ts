@@ -4,6 +4,7 @@ import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
 import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
 import { TerminalProvider } from '../providers/TerminalProvider';
+import { formatTestName } from '../utils';
 
 export class MochaTestRunner implements TestRunnerInterface {
   public name = 'mocha';
@@ -22,7 +23,8 @@ export class MochaTestRunner implements TestRunnerInterface {
   public runTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
-    const command = `${this.binPath} ${fileName} --grep="${testName}" ${additionalArguments}`;
+    const mainArgs = `${fileName} --grep="${formatTestName(testName)}" ${additionalArguments}`;
+    const command = `${this.binPath} ${mainArgs}`;
 
     const terminal = this.terminalProvider.get({ env: environmentVariables }, rootPath);
 
@@ -34,7 +36,13 @@ export class MochaTestRunner implements TestRunnerInterface {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
     debug.startDebugging(rootPath, {
-      args: [fileName, '--grep', testName, '--no-timeout', ...additionalArguments.split(' ')],
+      args: [
+        fileName,
+        '--grep',
+        formatTestName(testName),
+        '--no-timeout',
+        ...additionalArguments.split(' '),
+      ],
       console: 'integratedTerminal',
       env: environmentVariables,
       name: 'Debug Test',
