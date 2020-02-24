@@ -16,14 +16,14 @@ function getRootPath({ uri }) {
 function getCodeLens(rootPath, fileName, testName, startPosition) {
   const testRunnerCodeLens = new TestRunnerCodeLens(rootPath, fileName, testName, startPosition);
 
-  const debugRunnerCodeLens = new TestDebugRunnerCodeLens(
+  const testDebugRunnerCodeLens = new TestDebugRunnerCodeLens(
     rootPath,
     fileName,
     testName,
     startPosition,
   );
 
-  return [testRunnerCodeLens, debugRunnerCodeLens];
+  return [testRunnerCodeLens, testDebugRunnerCodeLens];
 }
 
 export class TestRunnerCodeLensProvider implements CodeLensProvider {

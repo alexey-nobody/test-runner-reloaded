@@ -5,7 +5,7 @@
 
 // The module 'assert' provides assertion methods from node
 import * as assert from 'assert';
-import { codeParser } from '../../parser/code-parser';
+import { codeParser } from '../../src/parser/code-parser';
 
 // Defines a Mocha test suite to group tests of similar kind together
 suite('codeParser Tests', () => {
