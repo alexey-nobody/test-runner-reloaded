@@ -4,6 +4,7 @@ import { TestRunnerInterface } from '../interfaces/ITestRunnerInterface';
 import { TestRunnerOptions } from '../interfaces/ITestRunnerOptions';
 import { ConfigurationProvider } from '../providers/ConfigurationProvider';
 import { TerminalProvider } from '../providers/TerminalProvider';
+import { formatTestName } from '../utils';
 
 export class ReactScriptsTestRunner implements TestRunnerInterface {
   public name = 'react-scripts';
@@ -24,7 +25,8 @@ export class ReactScriptsTestRunner implements TestRunnerInterface {
 
     const cleanedFileName = parse(fileName).base;
 
-    const command = `${this.binPath} test ${cleanedFileName} --testNamePattern="${testName}" --no-cache --watchAll=false ${additionalArguments}`;
+    const mainArgs = `test ${cleanedFileName} --testNamePattern="${formatTestName(testName)}"`;
+    const command = `${this.binPath} ${mainArgs} --no-cache --watchAll=false ${additionalArguments}`;
 
     const terminal = this.terminalProvider.get({ env: environmentVariables }, rootPath);
 
@@ -44,7 +46,7 @@ export class ReactScriptsTestRunner implements TestRunnerInterface {
       args: [
         'test',
         cleanedFileName,
-        `--testNamePattern="${testName}"`,
+        `--testNamePattern="${formatTestName(testName)}"`,
         '--runInBand',
         '--no-cache',
         '--watchAll=false',
