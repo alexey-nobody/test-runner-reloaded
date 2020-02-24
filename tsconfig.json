@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": true,
     "removeComments": true,
-    "target": "es2018",
+    "target": "ES2019",
+    "lib": ["ES2019"],
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
     "incremental": true
   },
   "exclude": ["node_modules", "dist"]
