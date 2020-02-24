@@ -56,8 +56,7 @@ export class ReactScriptsTestRunner implements TestRunnerInterface {
       protocol: 'inspector',
       console: 'integratedTerminal',
       internalConsoleOptions: 'neverOpen',
-      // eslint-disable-next-line no-template-curly-in-string
-      runtimeExecutable: '${workspaceFolder}/node_modules/.bin/react-scripts',
+      runtimeExecutable: `\${workspaceFolder}/${this.binPath}`,
     });
   }
 }

@@ -46,8 +46,7 @@ export class MochaTestRunner implements TestRunnerInterface {
       console: 'integratedTerminal',
       env: environmentVariables,
       name: 'Debug Test',
-      // eslint-disable-next-line no-template-curly-in-string
-      program: '${workspaceFolder}/node_modules/mocha/bin/_mocha',
+      program: `\${workspaceFolder}/${this.binPath}`,
       request: 'launch',
       type: 'node',
     });
