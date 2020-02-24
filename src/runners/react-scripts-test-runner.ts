@@ -8,8 +8,8 @@ import { formatTestName } from '../utils';
 
 export class ReactScriptsTestRunner implements TestRunnerInterface {
   public name = 'react-scripts';
-  public terminalProvider: TerminalProvider = null;
-  public configurationProvider: ConfigurationProvider = null;
+  public terminalProvider: TerminalProvider;
+  public configurationProvider: ConfigurationProvider;
 
   get binPath(): string {
     return join('node_modules', '.bin', 'react-scripts');

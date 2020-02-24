@@ -8,8 +8,8 @@ import { formatTestName } from '../utils';
 
 export class JestTestRunner implements TestRunnerInterface {
   public name = 'jest';
-  public terminalProvider: TerminalProvider = null;
-  public configurationProvider: ConfigurationProvider = null;
+  public terminalProvider: TerminalProvider;
+  public configurationProvider: ConfigurationProvider;
 
   get binPath(): string {
     return join('node_modules', '.bin', 'jest');
