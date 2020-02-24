@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
+## [2.1.0] - 2020-02-24
+- Fixed bug if test name contains brackets
+- Optimise plugin, refactoring code
+
 ## [2.0.5] - 2020-02-22
 - Fixed bug with test names with spaces passed to Jest in Windows (Thanks for report about bug to https://github.com/jkovzels).
 - Minor fixes and optimisations on jest test runner
