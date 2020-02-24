@@ -2,7 +2,7 @@
   "name": "javascript-test-runner-reloaded",
   "displayName": "Test Runner Reloaded",
   "description": "Run JavaScript and TypeScript tests easily using CodeLens.",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "publisher": "alexeynobody",
   "engines": {
     "vscode": "^1.18.0"
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexeynobody/javascript-test-runner"
+    "url": "https://github.com/alexeynobody/test-runner-reloaded"
   },
   "icon": "res/icon.png",
   "main": "./dist/src/extension",
