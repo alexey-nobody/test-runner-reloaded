@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
+## [2.1.1] - 2020-02-24
+- Fix Readme.MD for logo and demo
+
 ## [2.1.0] - 2020-02-24
 - Fixed bug if test name contains brackets
 - Optimise plugin, refactoring code
