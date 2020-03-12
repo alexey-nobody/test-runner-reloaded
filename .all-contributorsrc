@@ -129,7 +129,8 @@
       "profile": "https://github.com/alexeynobody",
       "contributions": [
         "code",
-        "bug"
+        "bug",
+        "ideas"
       ]
     },
     {
@@ -139,6 +140,15 @@
       "profile": "https://github.com/jbwyme",
       "contributions": [
         "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "jkovzels",
+      "name": "Jurijs Kovzels",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/351671?v=4",
+      "profile": "https://github.com/jkovzels",
+      "contributions": [
         "bug"
       ]
     }
