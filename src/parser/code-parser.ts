@@ -1,8 +1,10 @@
 import { parse } from '@babel/parser';
+import { File } from '@babel/types';
 
 const testTokens = ['describe', 'it', 'test'];
 
-function getNextStringVal(tokens, start) {
+function getTestName(ast: File, start: number): string | null {
+  const { tokens } = ast;
   for (let i = start; i < tokens.length; i += 1) {
     const token = tokens[i];
     if (['string', 'template'].includes(token.type.label)) {
@@ -12,30 +14,26 @@ function getNextStringVal(tokens, start) {
   return null;
 }
 
-function codeParser(sourceCode) {
-  const ast = parse(sourceCode, {
+function codeParser(sourceCode: string) {
+  const ast: File = parse(sourceCode, {
     plugins: ['jsx', 'typescript'],
     sourceType: 'module',
     tokens: true,
   });
 
   return ast.tokens
-    .map(({ value, loc, type }, index) => {
-      if (!testTokens.includes(value)) {
+    .map(({ value, loc, type }, index: number) => {
+      if (!testTokens.includes(value) || type.label !== 'name') {
         return null;
       }
-      if (type.label !== 'name') {
-        return null;
-      }
+
       const nextToken = ast.tokens[index + 1];
       if (!nextToken.type.startsExpr) {
         return null;
       }
 
-      return {
-        loc,
-        testName: getNextStringVal(ast.tokens, index + 2),
-      };
+      const testName = getTestName(ast, index + 2);
+      return { loc, testName };
     })
     .filter(Boolean);
 }
