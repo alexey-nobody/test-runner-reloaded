@@ -21,9 +21,8 @@ export class TestRunnerProvider implements CodeLensProvider {
   public provideCodeLenses(document: TextDocument): CodeLens[] | Thenable<CodeLens[]> {
     const createRangeObject = ({ line }) => document.lineAt(line - 1).range;
     const rootPath = this.getRootPath(document);
-    const documentText: string = document.getText();
-
-    return codeParser(documentText).reduce(
+    const sourceCode: string = document.getText();
+    return codeParser(sourceCode).reduce(
       (acc, { loc, testName }) => [
         ...acc,
         ...this.getCodeLens(rootPath, document.fileName, testName, createRangeObject(loc.start)),
