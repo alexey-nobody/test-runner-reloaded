@@ -3,7 +3,7 @@ import { TestDebugRunner } from '../codelens/test-debug-runner';
 import { TestRunner } from '../codelens/test-runner';
 import { codeParser } from '../parser/code-parser';
 
-export class TestRunnerCodeLensProvider implements CodeLensProvider {
+export class TestRunnerProvider implements CodeLensProvider {
   private getCodeLens(rootPath, fileName, testName, startPosition) {
     const testRunner = new TestRunner(rootPath, fileName, testName, startPosition);
     const testDebugRunner = new TestDebugRunner(rootPath, fileName, testName, startPosition);
@@ -21,8 +21,9 @@ export class TestRunnerCodeLensProvider implements CodeLensProvider {
   public provideCodeLenses(document: TextDocument): CodeLens[] | Thenable<CodeLens[]> {
     const createRangeObject = ({ line }) => document.lineAt(line - 1).range;
     const rootPath = this.getRootPath(document);
+    const documentText: string = document.getText();
 
-    return codeParser(document.getText()).reduce(
+    return codeParser(documentText).reduce(
       (acc, { loc, testName }) => [
         ...acc,
         ...this.getCodeLens(rootPath, document.fileName, testName, createRangeObject(loc.start)),
