@@ -1,7 +1,7 @@
 import { exists } from 'fs';
 import { join } from 'path';
 import { WorkspaceFolder } from 'vscode';
-import { TestRunnerInterface } from '../interfaces/test-runner-interface';
+import { TestRunnerInterface } from '../interfaces/test-runner';
 import { ConfigurationProvider } from '../providers/configuration-provider';
 import { TerminalProvider } from '../providers/terminal-provider';
 import { ReactScriptsTestRunner } from './react-scripts-test-runner';

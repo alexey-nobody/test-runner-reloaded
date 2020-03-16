@@ -1,12 +1,12 @@
 import { join } from 'path';
 import { debug, WorkspaceFolder } from 'vscode';
-import { TestRunnerInterface } from '../interfaces/test-runner-interface';
+import { TestRunner } from '../interfaces/test-runner';
 import { TestRunnerOptions } from '../interfaces/test-runner-options';
 import { ConfigurationProvider } from '../providers/configuration-provider';
 import { TerminalProvider } from '../providers/terminal-provider';
 import { formatTestName } from '../utils';
 
-export class JestTestRunner implements TestRunnerInterface {
+export class JestTestRunner implements TestRunner {
   public name = 'jest';
   public terminalProvider: TerminalProvider;
   public configurationProvider: ConfigurationProvider;
