@@ -1,6 +1,6 @@
 import { CodeLens, Range, WorkspaceFolder } from 'vscode';
 
-export class TestDebugRunnerCodeLens extends CodeLens {
+export class TestDebugRunner extends CodeLens {
   constructor(rootPath: WorkspaceFolder, fileName: string, testName: string, range: Range) {
     super(range, {
       arguments: [rootPath, fileName, testName],

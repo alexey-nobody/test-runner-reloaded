@@ -1,20 +1,13 @@
 import { CodeLens, CodeLensProvider, TextDocument, workspace } from 'vscode';
-import { TestDebugRunnerCodeLens } from '../codelens/test-debug-runner-code-lens';
-import { TestRunnerCodeLens } from '../codelens/test-runner-code-lens';
+import { TestDebugRunner } from '../codelens/test-debug-runner';
+import { TestRunner } from '../codelens/test-runner';
 import { codeParser } from '../parser/code-parser';
 
 export class TestRunnerCodeLensProvider implements CodeLensProvider {
   private getCodeLens(rootPath, fileName, testName, startPosition) {
-    const testRunnerCodeLens = new TestRunnerCodeLens(rootPath, fileName, testName, startPosition);
-
-    const testDebugRunnerCodeLens = new TestDebugRunnerCodeLens(
-      rootPath,
-      fileName,
-      testName,
-      startPosition,
-    );
-
-    return [testRunnerCodeLens, testDebugRunnerCodeLens];
+    const testRunner = new TestRunner(rootPath, fileName, testName, startPosition);
+    const testDebugRunner = new TestDebugRunner(rootPath, fileName, testName, startPosition);
+    return [testRunner, testDebugRunner];
   }
 
   private getRootPath({ uri }) {
