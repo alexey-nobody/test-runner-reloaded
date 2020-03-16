@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
+## [2.2.0] - 
+- Refactoring code
+- Updated older dependencies
+
 ## [2.1.2] - 2020-02-24
 - Fixed repository url after rename it in package.json
 
