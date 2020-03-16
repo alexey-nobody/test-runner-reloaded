@@ -1,7 +1,7 @@
 import { workspace, WorkspaceConfiguration, WorkspaceFolder } from 'vscode';
 
 export class ConfigurationProvider {
-  public configuration: WorkspaceConfiguration = null;
+  private configuration: WorkspaceConfiguration = null;
 
   constructor(rootPath: WorkspaceFolder) {
     this.configuration = workspace.getConfiguration('test-runner-reloaded', rootPath.uri);
