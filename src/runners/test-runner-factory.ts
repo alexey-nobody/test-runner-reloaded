@@ -1,7 +1,7 @@
 import { exists } from 'fs';
 import { join } from 'path';
 import { WorkspaceFolder } from 'vscode';
-import { TestRunnerInterface } from '../interfaces/test-runner';
+import { TestRunner } from '../interfaces/test-runner';
 import { ConfigurationProvider } from '../providers/configuration-provider';
 import { TerminalProvider } from '../providers/terminal-provider';
 import { ReactScriptsTestRunner } from './react-scripts-test-runner';
@@ -19,9 +19,9 @@ function doesFileExist(filePath: string): Promise<boolean> {
 }
 
 async function getAvailableTestRunner(
-  testRunners: TestRunnerInterface[],
+  testRunners: TestRunner[],
   rootPath: WorkspaceFolder,
-): Promise<TestRunnerInterface> {
+): Promise<TestRunner> {
   for (const runner of testRunners) {
     const doesRunnerExist = await doesFileExist(join(rootPath.uri.fsPath, runner.binPath));
     if (doesRunnerExist) {
@@ -32,7 +32,7 @@ async function getAvailableTestRunner(
   throw new Error('No test runner in your project. Please install one.');
 }
 
-export async function getTestRunner(rootPath: WorkspaceFolder): Promise<TestRunnerInterface> {
+export async function getTestRunner(rootPath: WorkspaceFolder): Promise<TestRunner> {
   const configurationProvider = new ConfigurationProvider(rootPath);
 
   const reactScriptsTestRunner = new ReactScriptsTestRunner({
