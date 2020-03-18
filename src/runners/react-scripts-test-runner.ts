@@ -8,7 +8,9 @@ import { formatTestName } from '../utils';
 
 export class ReactScriptsTestRunner implements TestRunner {
   public name = 'react-scripts';
+
   public terminalProvider: TerminalProvider;
+
   public configurationProvider: ConfigurationProvider;
 
   get binPath(): string {

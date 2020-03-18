@@ -8,16 +8,18 @@ import { formatTestName } from '../utils';
 
 export class MochaTestRunner implements TestRunner {
   public name = 'mocha';
+
   public terminalProvider: TerminalProvider;
+
   public configurationProvider: ConfigurationProvider;
 
   get binPath(): string {
     return join('node_modules', '.bin', 'mocha');
   }
 
-  constructor({ terminalProvider, configurationProvider }: TestRunnerOptions) {
-    this.terminalProvider = terminalProvider;
-    this.configurationProvider = configurationProvider;
+  constructor(testRunnerOptions: TestRunnerOptions) {
+    this.terminalProvider = testRunnerOptions.terminalProvider;
+    this.configurationProvider = testRunnerOptions.configurationProvider;
   }
 
   public runTest(rootPath: WorkspaceFolder, fileName: string, testName: string) {

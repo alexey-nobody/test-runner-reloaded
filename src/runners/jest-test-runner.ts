@@ -8,7 +8,9 @@ import { formatTestName } from '../utils';
 
 export class JestTestRunner implements TestRunner {
   public name = 'jest';
+
   public terminalProvider: TerminalProvider;
+
   public configurationProvider: ConfigurationProvider;
 
   get binPath(): string {

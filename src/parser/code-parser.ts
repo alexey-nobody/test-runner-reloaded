@@ -22,7 +22,7 @@ function codeParser(sourceCode: string) {
   });
 
   return ast.tokens
-    .map(({ value, loc, type }, index: number) => {
+    .map(({ value, loc, type }: { value: string; loc: number; type: any }, index: number) => {
       if (!testTokens.includes(value) || type.label !== 'name') {
         return null;
       }

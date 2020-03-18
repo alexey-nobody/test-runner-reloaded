@@ -1,7 +1,12 @@
-import { CodeLens, Range, WorkspaceFolder } from 'vscode';
+import { CodeLens, Range, WorkspaceFolder, workspace } from 'vscode';
 
 export class TestRunner extends CodeLens {
-  constructor(rootPath: WorkspaceFolder, fileName: string, testName: string, range: Range) {
+  constructor(
+    rootPath: WorkspaceFolder | typeof workspace,
+    fileName: string,
+    testName: string,
+    range: Range,
+  ) {
     super(range, {
       arguments: [rootPath, fileName, testName],
       command: 'test-runner-reloaded.run.test',

@@ -22,7 +22,7 @@ async function getAvailableTestRunner(
   testRunners: TestRunner[],
   rootPath: WorkspaceFolder,
 ): Promise<TestRunner> {
-  for (const runner of testRunners) {
+  for await (const runner of testRunners) {
     const doesRunnerExist = await doesFileExist(join(rootPath.uri.fsPath, runner.binPath));
     if (doesRunnerExist) {
       return runner;
