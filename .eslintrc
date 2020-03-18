@@ -1,16 +1,11 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "impliedStrict": true
-    },
-    "project": "tsconfig.json"
+    "project": "tsconfig.json",
+    "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": ["@typescript-eslint/eslint-plugin"],
   "env": {
-    "es6": true,
     "node": true
   },
   "extends": [
@@ -25,30 +20,12 @@
   ],
   "rules": {
     "class-methods-use-this": "off",
-    "lines-between-class-members": "off",
-    "no-await-in-loop": "off",
     "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
-    "no-template-curly-in-string": "off",
     "import/export": "off",
     "import/extensions": ["error", "never"],
-    "import/named": "off",
-    "import/namespace": "off",
-    "import/newline-after-import": "warn",
     "import/prefer-default-export": "off",
-    "import/no-cycle": "off",
-    "import/no-dynamic-require": "error",
-    "import/no-default-export": "error",
-    "import/no-duplicates": "error",
-    "import/no-self-import": "error",
     "import/no-unresolved": ["warn", { "ignore": ["vscode"] }],
-    "import/order": [
-      "warn",
-      {
-        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
-        "newlines-between": "never"
-      }
-    ],
-    "indent": ["error", 2],
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-function-return-type": 0
   }
 }
