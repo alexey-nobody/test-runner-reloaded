@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to the "javascript-test-runner" extension will be documented in this file.
 
-## [2.2.0] - 
+## [2.2.0] - 2020-03-22
 - Refactoring code
 - Updated older dependencies
 - Enable all strict type checking options in compiller.
