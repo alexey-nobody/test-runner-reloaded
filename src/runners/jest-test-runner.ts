@@ -26,9 +26,9 @@ export class JestTestRunner implements TestRunner {
     const { additionalArguments, environmentVariables } = this.configurationProvider;
 
     const cleanedFileName = fileName.replace(/\\/g, '/');
-    const mainArgs = `${cleanedFileName} --testNamePattern '${formatTestName(testName)}'`;
-    const secondArgs = "--runInBand --testRegex '.*.(test|spec|e2e-spec).ts' --rootDir '.'";
-    const command = `${this.binPath} ${mainArgs} ${secondArgs} ${additionalArguments}`;
+    const name = formatTestName(testName);
+    const mainArgs = `${cleanedFileName} --testNamePattern='${name}' --runInBand --rootDir='.'`;
+    const command = `${this.binPath} ${mainArgs} ${additionalArguments}`;
 
     const terminal = this.terminalProvider.get({ env: environmentVariables }, rootPath);
     terminal.sendText(command, true);
