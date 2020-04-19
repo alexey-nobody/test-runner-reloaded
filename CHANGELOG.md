@@ -1,5 +1,8 @@
-# Change Log
-All notable changes to the "javascript-test-runner" extension will be documented in this file.
+## [2.2.1] - 2020-04-19
+- Refactoring code for jest runner
+- Updated older dependencies
+- Fix bug with debug test in jest
+- Fix bug with run and debug tests in jest only in ts files
 
 ## [2.2.0] - 2020-03-22
 - Refactoring code
