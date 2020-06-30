@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "@types/mocha": "7.0.2",
-    "@types/node": "13.13.9",
+    "@types/node": "13.13.12",
     "@typescript-eslint/eslint-plugin": "3.0.0",
     "all-contributors-cli": "6.16.1",
     "eslint": "7.0.0",
