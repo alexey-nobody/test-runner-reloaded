@@ -1,6 +1,6 @@
 <p align="center"><img src="res/icon.png" width="20%"></p>
 
-# JavaScript Test Runner
+# Test Runner Reloaded
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors)
 
